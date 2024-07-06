@@ -32,9 +32,10 @@ public class ControllerEmprestimo   {
     }
     public  void pagarParcelas () {
         int parcelas = 0;
-        String confirmapgto = "";
+        String confirmapgto;
         double valorParc = valor / numParc;
         boolean validaParcelas = false;
+        boolean validaPgto = false;
 
         while (!validaParcelas) {
             System.out.println(pessoa.getNome() + ", você possui " + (numParc - numParcPag) + " parcelas a serem pagas");
@@ -44,24 +45,28 @@ public class ControllerEmprestimo   {
             if (parcelas >= 1 && parcelas <= (numParc - numParcPag)) {
                 System.out.println("Você está prestes a pagar " + parcelas + " parcelas do seu empréstimo, " + pessoa.getNome() + "!");
                 System.out.println("Você confirma o pagamento da(s) " + parcelas + " parcela(s)? Total a pagar: " + dinheiro.format(valorParc * parcelas));
-                System.out.println("Digite 'SIM' para confirmar e 'NAO' para cancelar");
-                confirmapgto = sc.next();
                 validaParcelas = true;
             } else {
                 System.out.println("ATENÇÃO: O número de parcelas que podem ser pagas são: " + (numParc - numParcPag));
             }
         }
+        while (!validaPgto) {
+            System.out.println("Digite 'SIM' para confirmar e 'NAO' para cancelar");
+            confirmapgto = sc.next();
         switch (confirmapgto) {
             case "SIM": System.out.println("Pagamento confirmado com sucesso! ");
                 //double pgto = valor / parcelas;
                 numParcPag = numParcPag + parcelas;
+                validaPgto = true;
             break;
             case "NAO": System.out.println("Tudo bem! Volte quando puder. :)");
+                validaPgto = true;
                 System.exit(0);
             break;
             default: System.out.println("Atenção: Escreva conforme orientado");
+            break;
         }
-
+            }
     }
     public void imprimirValorTotalPago () {
         System.out.println("Valor Total Pago (Acumulado): " + dinheiro.format( (valor/numParc) * numParcPag));
