@@ -3,6 +3,7 @@ package br.projeto.sistemadeemprestimo.controller;
 import br.projeto.sistemadeemprestimo.model.Pessoa;
 
 import java.text.NumberFormat;
+import java.util.InputMismatchException;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -39,9 +40,13 @@ public class ControllerEmprestimo   {
 
         while (!validaParcelas) {
             System.out.println(pessoa.getNome() + ", você possui " + (numParc - numParcPag) + " parcelas a serem pagas");
-            System.out.println("Quantas parcelas deseja pagar hoje?: ");
-            parcelas = sc.nextInt();
-
+            try {
+                System.out.println("Quantas parcelas deseja pagar hoje?: ");
+                parcelas = sc.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Erro: Carcetere inválido! Reinicie o sistema e tente novamente");
+                System.exit(0);
+            }
             if (parcelas >= 1 && parcelas <= (numParc - numParcPag)) {
                 System.out.println("Você está prestes a pagar " + parcelas + " parcelas do seu empréstimo, " + pessoa.getNome() + "!");
                 System.out.println("Você confirma o pagamento da(s) " + parcelas + " parcela(s)? Total a pagar: " + dinheiro.format(valorParc * parcelas));
@@ -53,6 +58,7 @@ public class ControllerEmprestimo   {
         while (!validaPgto) {
             System.out.println("Digite 'SIM' para confirmar e 'NAO' para cancelar");
             confirmapgto = sc.next();
+            confirmapgto = confirmapgto.toUpperCase();
         switch (confirmapgto) {
             case "SIM": System.out.println("Pagamento confirmado com sucesso! ");
                 //double pgto = valor / parcelas;
