@@ -1,7 +1,7 @@
 # Exercício 1  Sistema de Empréstimo
-## Implementar um sistema de Empréstimo conforme a descrição abaixo respeitando as 
-restrições descritas.(2,5P)
+## Implementar um sistema de Empréstimo conforme a descrição abaixo respeitando as restrições descritas.(2,5P)
 
+```
 ● Criar um sistema que possibilite a realização de empréstimos. 
 ● O sistema deve ser composto pelas classes: Pessoa, Empréstimo e 
 Principal(responsável pela execução do sistema). 
@@ -14,3 +14,4 @@ pagas e estar associado a uma pessoa.
     ○ Possibilitar realizar o pagamento de uma ou mais parcelas do empréstimo. 
     ○ Imprimir o valor total já pago. 
     ○ Verificar se o empréstimo foi quitado.
+```
