@@ -84,5 +84,6 @@ public class ControllerEmprestimo   {
         else {
             System.out.println("Você ainda possui " + (numParc - numParcPag) + " a serem pagas\nAté Logo! ;)");
         }
+        sc.close();
     }
 }
