@@ -44,8 +44,8 @@ public class ControllerEmprestimo   {
                 System.out.println("Quantas parcelas deseja pagar hoje?: ");
                 parcelas = sc.nextInt();
             } catch (InputMismatchException e) {
-                System.out.println("Erro: Carcetere inválido! Reinicie o sistema e tente novamente");
-                System.exit(0);
+                System.out.println("Erro: Carcetere inválido! Tente novamente");
+                sc.next();
             }
             if (parcelas >= 1 && parcelas <= (numParc - numParcPag)) {
                 System.out.println("Você está prestes a pagar " + parcelas + " parcelas do seu empréstimo, " + pessoa.getNome() + "!");
