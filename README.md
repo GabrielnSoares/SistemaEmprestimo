@@ -15,3 +15,8 @@ pagas e estar associado a uma pessoa.
     ○ Imprimir o valor total já pago. 
     ○ Verificar se o empréstimo foi quitado.
 ```
+
+### Diagrama da Aplicação
+![Diagrama Sistema de Emprestimo](https://github.com/GabrielnSoares/SistemaEmprestimo/assets/120689729/92919d71-36c8-4879-b793-bcb35a20a90e)
+
+
