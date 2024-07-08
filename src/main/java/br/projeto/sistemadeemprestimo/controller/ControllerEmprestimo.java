@@ -43,7 +43,7 @@ public class ControllerEmprestimo   {
             try {
                 System.out.println("Quantas parcelas deseja pagar hoje?: ");
                 parcelas = sc.nextInt();
-            } catch (InputMismatchException e) {
+            } catch (InputMismatchException erro1001) {
                 System.out.println("Erro: Carcetere inválido! Tente novamente");
                 sc.next();
             }

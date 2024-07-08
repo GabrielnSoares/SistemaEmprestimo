@@ -10,6 +10,9 @@ public class SistemaEmprestimoApp {
 
     public static void main(String[] args) {
         String recebeCpf;
+        boolean validaCpf = false;
+        String verificaUser;
+        boolean verificaCpf;
 
         Scanner sc = new Scanner(System.in);
 
@@ -25,80 +28,108 @@ public class SistemaEmprestimoApp {
         System.out.println("=======BOAS VINDAS AO SISTEMA DE EMPRÉSTIMO=======");
         System.out.println("==================================================");
 
-        System.out.println("Qual é o seu CPF? Digite no formato '000.000.000-00'");
-        recebeCpf = sc.next();
+        while (!validaCpf) {
+            System.out.println("Qual é o seu CPF? Digite no formato '000.000.000-00'");
+            recebeCpf = sc.next();
 
-        if (recebeCpf.equals(listaDePessoas.get(0).getCpf())) {
+            if (recebeCpf.equals(listaDePessoas.get(0).getCpf())) {
 
-            ControllerEmprestimo emprestimo = new ControllerEmprestimo(50000,60, 5, listaDePessoas.get(0));
+                ControllerEmprestimo emprestimo = new ControllerEmprestimo(50000, 60, 5, listaDePessoas.get(0));
 
-            emprestimo.imprimirDados();
+                emprestimo.imprimirDados();
 
-            emprestimo.pagarParcelas();
+                emprestimo.pagarParcelas();
 
-            emprestimo.imprimirValorTotalPago();
+                emprestimo.imprimirValorTotalPago();
 
-            emprestimo.verificarEmprstimoQuitado();
+                emprestimo.verificarEmprstimoQuitado();
 
-        }
-        if (recebeCpf.equals(listaDePessoas.get(1).getCpf())) {
+                validaCpf = true;
 
-            ControllerEmprestimo emprestimo = new ControllerEmprestimo(1000.85,10, 0, listaDePessoas.get(1));
+            }
+            if (recebeCpf.equals(listaDePessoas.get(1).getCpf())) {
 
-            emprestimo.imprimirDados();
+                ControllerEmprestimo emprestimo = new ControllerEmprestimo(1000.85, 10, 0, listaDePessoas.get(1));
 
-            emprestimo.pagarParcelas();
+                emprestimo.imprimirDados();
 
-            emprestimo.imprimirValorTotalPago();
+                emprestimo.pagarParcelas();
 
-            emprestimo.verificarEmprstimoQuitado();
+                emprestimo.imprimirValorTotalPago();
 
-        }
-        if (recebeCpf.equals(listaDePessoas.get(2).getCpf())) {
+                emprestimo.verificarEmprstimoQuitado();
 
-            ControllerEmprestimo emprestimo = new ControllerEmprestimo(350000,120, 50, listaDePessoas.get(2));
+                validaCpf = true;
 
-            emprestimo.imprimirDados();
+            }
+            if (recebeCpf.equals(listaDePessoas.get(2).getCpf())) {
 
-            emprestimo.pagarParcelas();
+                ControllerEmprestimo emprestimo = new ControllerEmprestimo(350000, 120, 50, listaDePessoas.get(2));
 
-            emprestimo.imprimirValorTotalPago();
+                emprestimo.imprimirDados();
 
-            emprestimo.verificarEmprstimoQuitado();
+                emprestimo.pagarParcelas();
 
-        }
-        if (recebeCpf.equals(listaDePessoas.get(3).getCpf())) {
+                emprestimo.imprimirValorTotalPago();
 
-            ControllerEmprestimo emprestimo = new ControllerEmprestimo(2000.90,5, 1, listaDePessoas.get(3));
+                emprestimo.verificarEmprstimoQuitado();
 
-            emprestimo.imprimirDados();
+                validaCpf = true;
 
-            emprestimo.pagarParcelas();
+            }
+            if (recebeCpf.equals(listaDePessoas.get(3).getCpf())) {
 
-            emprestimo.imprimirValorTotalPago();
+                ControllerEmprestimo emprestimo = new ControllerEmprestimo(2000.90, 5, 1, listaDePessoas.get(3));
 
-            emprestimo.verificarEmprstimoQuitado();
+                emprestimo.imprimirDados();
 
-        }
-        if (recebeCpf.equals(listaDePessoas.get(4).getCpf())) {
+                emprestimo.pagarParcelas();
 
-            ControllerEmprestimo emprestimo = new ControllerEmprestimo(4000.99,12, 2, listaDePessoas.get(4));
+                emprestimo.imprimirValorTotalPago();
 
-            emprestimo.imprimirDados();
+                emprestimo.verificarEmprstimoQuitado();
 
-            emprestimo.pagarParcelas();
+                validaCpf = true;
 
-            emprestimo.imprimirValorTotalPago();
+            }
+            if (recebeCpf.equals(listaDePessoas.get(4).getCpf())) {
 
-            emprestimo.verificarEmprstimoQuitado();
+                ControllerEmprestimo emprestimo = new ControllerEmprestimo(4000.99, 12, 2, listaDePessoas.get(4));
 
-        }
-        if (!recebeCpf.equals(listaDePessoas.get(0).getCpf()) && !recebeCpf.equals(listaDePessoas.get(1).getCpf()) &&
-                !recebeCpf.equals(listaDePessoas.get(2).getCpf()) &&
-                !recebeCpf.equals(listaDePessoas.get(3).getCpf()) &&
-                !recebeCpf.equals(listaDePessoas.get(4).getCpf())) {
+                emprestimo.imprimirDados();
 
-            System.out.println("CPF não localizado! Entre em contato com o seu gerente");
+                emprestimo.pagarParcelas();
+
+                emprestimo.imprimirValorTotalPago();
+
+                emprestimo.verificarEmprstimoQuitado();
+
+                validaCpf = true;
+
+            }
+            if (!recebeCpf.equals(listaDePessoas.get(0).getCpf()) && !recebeCpf.equals(listaDePessoas.get(1).getCpf()) &&
+                    !recebeCpf.equals(listaDePessoas.get(2).getCpf()) &&
+                    !recebeCpf.equals(listaDePessoas.get(3).getCpf()) &&
+                    !recebeCpf.equals(listaDePessoas.get(4).getCpf())) {
+                verificaCpf = false;
+                while (!verificaCpf) {
+                    System.out.println("CPF não localizado!\nVocê precisa inserir um CPF já cadastrado previamente\nDigite 'POSSUO' para tentar novamente ou 'CANCELAR' para encerrar a aplicação");
+                    verificaUser = sc.next();
+                    verificaUser = verificaUser.toUpperCase();
+
+                    switch (verificaUser) {
+                        case "CANCELAR":
+                            System.out.println("Em caso de dúvidas, entre em contato com nossa central através do número 0800-999-3948\nAté logo!");
+                            verificaCpf = true;
+                            System.exit(0);
+                            break;
+                        case "POSSUO":
+                            validaCpf = false;
+                            verificaCpf = true;
+                            break;
+                    }
+                }
+            }
         }
     }
 }
