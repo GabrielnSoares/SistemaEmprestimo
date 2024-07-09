@@ -26,10 +26,14 @@ public class ControllerEmprestimo   {
         this.pessoa = pessoa;
     }
     public void imprimirDados () {
+        System.out.println("___________________________________");
+        System.out.println("DADOS CADASTRAIS");
+        System.out.println("___________________________________");
         System.out.println("Nome: " +pessoa.getNome());
         System.out.println("Valor do Empréstimo: " + dinheiro.format(valor));
         System.out.println("Número de Parcelas: " + numParc);
         System.out.println("Número de Parcelas Pagas: " + numParcPag);
+        System.out.println("___________________________________");
     }
     public  void pagarParcelas () {
         int parcelas = 0;
@@ -41,18 +45,21 @@ public class ControllerEmprestimo   {
         while (!validaParcelas) {
             System.out.println(pessoa.getNome() + ", você possui " + (numParc - numParcPag) + " parcelas a serem pagas");
             try {
-                System.out.println("Quantas parcelas deseja pagar hoje?: ");
+                System.out.print("Quantas parcelas deseja pagar hoje?: ");
                 parcelas = sc.nextInt();
             } catch (InputMismatchException erro1001) {
+                System.out.println("==================================================");
                 System.out.println("Erro: Carcetere inválido! Tente novamente");
                 sc.next();
             }
             if (parcelas >= 1 && parcelas <= (numParc - numParcPag)) {
+                System.out.println("___________________________________");
                 System.out.println("Você está prestes a pagar " + parcelas + " parcelas do seu empréstimo, " + pessoa.getNome() + "!");
                 System.out.println("Você confirma o pagamento da(s) " + parcelas + " parcela(s)? Total a pagar: " + dinheiro.format(valorParc * parcelas));
                 validaParcelas = true;
             } else {
                 System.out.println("ATENÇÃO: O número de parcelas que podem ser pagas são: " + (numParc - numParcPag));
+                System.out.println("==================================================");
             }
         }
         while (!validaPgto) {
@@ -60,16 +67,20 @@ public class ControllerEmprestimo   {
             confirmapgto = sc.next();
             confirmapgto = confirmapgto.toUpperCase();
         switch (confirmapgto) {
-            case "SIM": System.out.println("Pagamento confirmado com sucesso! ");
+            case "SIM": System.out.println("___________________________________");
+                System.out.println("Pagamento confirmado com sucesso! ");
                 //double pgto = valor / parcelas;
                 numParcPag = numParcPag + parcelas;
                 validaPgto = true;
             break;
-            case "NAO": System.out.println("Tudo bem! Volte quando puder. :)");
+            case "NAO": System.out.println("___________________________________");
+                System.out.println("Tudo bem! Volte quando puder. :)");
                 validaPgto = true;
                 System.exit(0);
             break;
-            default: System.out.println("Atenção: Escreva conforme orientado");
+            default:System.out.println("==================================================");
+            System.out.println("Atenção: Escreva conforme orientado");
+            System.out.println("==================================================");
             break;
         }
             }
@@ -82,7 +93,7 @@ public class ControllerEmprestimo   {
             System.out.println("Parabéns! Seu empréstimo está quitado!!");
         }
         else {
-            System.out.println("Você ainda possui " + (numParc - numParcPag) + " a serem pagas\nAté Logo! ;)");
+            System.out.println("Agora você possui " + (numParc - numParcPag) + " a serem pagas\nAté Logo! ;)");
         }
         sc.close();
     }

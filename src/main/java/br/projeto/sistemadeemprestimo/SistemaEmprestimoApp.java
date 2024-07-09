@@ -113,8 +113,11 @@ public class SistemaEmprestimoApp {
                     !recebeCpf.equals(listaDePessoas.get(4).getCpf())) {
                 verificaCpf = false;
                 while (!verificaCpf) {
-                    System.out.println("CPF não localizado!\nVocê precisa inserir um CPF já cadastrado previamente\nDigite 'POSSUO' para tentar novamente ou 'CANCELAR' para encerrar a aplicação");
+                    System.out.println("==================================================");
+                    System.out.println("Erro: CPF não localizado!\nVocê precisa inserir um CPF já cadastrado previamente\nDigite 'POSSUO' para tentar novamente ou 'CANCELAR' para encerrar a aplicação");
+                    System.out.println("==================================================");
                     verificaUser = sc.next();
+                    System.out.println("___________________________________");
                     verificaUser = verificaUser.toUpperCase();
 
                     switch (verificaUser) {
