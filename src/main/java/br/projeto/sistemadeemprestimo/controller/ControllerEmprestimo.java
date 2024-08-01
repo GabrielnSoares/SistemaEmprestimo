@@ -7,7 +7,7 @@ import java.util.InputMismatchException;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class ControllerEmprestimo   {
+public class ControllerEmprestimo {
 
     private final double valor;
     private final int numParc;
@@ -25,17 +25,19 @@ public class ControllerEmprestimo   {
         this.numParcPag = numParcPag;
         this.pessoa = pessoa;
     }
-    public void imprimirDados () {
+
+    public void imprimirDados() {
         System.out.println("___________________________________");
         System.out.println("DADOS CADASTRAIS");
         System.out.println("___________________________________");
-        System.out.println("Nome: " +pessoa.getNome());
+        System.out.println("Nome: " + pessoa.getNome());
         System.out.println("Valor do Empréstimo: " + dinheiro.format(valor));
         System.out.println("Número de Parcelas: " + numParc);
         System.out.println("Número de Parcelas Pagas: " + numParcPag);
         System.out.println("___________________________________");
     }
-    public  void pagarParcelas () {
+
+    public void pagarParcelas() {
         int parcelas = 0;
         String confirmapgto;
         double valorParc = valor / numParc;
@@ -66,33 +68,37 @@ public class ControllerEmprestimo   {
             System.out.println("Digite 'SIM' para confirmar e 'NAO' para cancelar");
             confirmapgto = sc.next();
             confirmapgto = confirmapgto.toUpperCase();
-        switch (confirmapgto) {
-            case "SIM": System.out.println("___________________________________");
-                System.out.println("Pagamento confirmado com sucesso! ");
-                //double pgto = valor / parcelas;
-                numParcPag = numParcPag + parcelas;
-                validaPgto = true;
-            break;
-            case "NAO": System.out.println("___________________________________");
-                System.out.println("Tudo bem! Volte quando puder. :)");
-                validaPgto = true;
-                System.exit(0);
-            break;
-            default:System.out.println("==================================================");
-            System.out.println("Atenção: Escreva conforme orientado");
-            System.out.println("==================================================");
-            break;
-        }
+            switch (confirmapgto) {
+                case "SIM":
+                    System.out.println("___________________________________");
+                    System.out.println("Pagamento confirmado com sucesso! ");
+                    //double pgto = valor / parcelas;
+                    numParcPag = numParcPag + parcelas;
+                    validaPgto = true;
+                    break;
+                case "NAO":
+                    System.out.println("___________________________________");
+                    System.out.println("Tudo bem! Volte quando puder. :)");
+                    validaPgto = true;
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("==================================================");
+                    System.out.println("Atenção: Escreva conforme orientado");
+                    System.out.println("==================================================");
+                    break;
             }
+        }
     }
-    public void imprimirValorTotalPago () {
-        System.out.println("Valor Total Pago (Acumulado): " + dinheiro.format( (valor/numParc) * numParcPag));
+
+    public void imprimirValorTotalPago() {
+        System.out.println("Valor Total Pago (Acumulado): " + dinheiro.format((valor / numParc) * numParcPag));
     }
-    public void verificarEmprstimoQuitado () {
+
+    public void verificarEmprstimoQuitado() {
         if (numParc - numParcPag == 0) {
             System.out.println("Parabéns! Seu empréstimo está quitado!!");
-        }
-        else {
+        } else {
             System.out.println("Agora você possui " + (numParc - numParcPag) + " a serem pagas\nAté Logo! ;)");
         }
         sc.close();
